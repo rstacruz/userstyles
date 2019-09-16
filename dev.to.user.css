@@ -20,9 +20,11 @@
 @-moz-document domain("dev.to") {
     /* Fonts for code */
     /* @import url('https://fonts.googleapis.com/css?family=Cousine&display=swap'); */
-    pre code,
-    code {
-        font-family: xCodeFont, consolas, monospace;
+    unless xCodeFont=="default" {
+        pre code,
+        code {
+            font-family: xCodeFont, consolas, monospace;
+        }
     }
 
     if xSimplifyAuthorCard {
