@@ -1,0 +1,27 @@
+/* ==UserStyle==
+@name           Slack.com customizations
+@namespace      github.com/openstyles/stylus
+@version        1.0.1
+@description    Customizations for Slack
+
+@author         Rico Sta. Cruz (@rstacruz)
+@homepageURL    https://github.com/rstacruz/userstyles
+@updateURL      https://raw.githubusercontent.com/rstacruz/userstyles/master/slack.com.user.css
+
+@preprocessor   stylus
+@var select xBodyFont "Font face" {
+    "default": "default",
+    "Roboto": "Roboto",
+    "IBM Plex Sans": "IBM Plex Sans"
+}
+==/UserStyle== */
+
+@-moz-document regexp(".*\\.slack\\.com/messages/.*") {
+  unless xBodyFont == "default" {
+    [lang] #msg_input,
+    [lang] body {
+      font-family: xBodyFont, NotoSansJP, Slack-Lato, appleLogo,
+        sans-serif !important;
+    }
+  }
+}
