@@ -1,0 +1,56 @@
+/* ==UserStyle==
+@name           Dev.to customizations
+@namespace      github.com/openstyles/stylus
+@version        1.0.1
+@description    Customizations for dev.to
+
+@author         Rico Sta. Cruz (@rstacruz)
+@homepageURL    https://github.com/rstacruz/userstyles
+@updateURL      https://raw.githubusercontent.com/rstacruz/userstyles/master/dev.to.user.css
+
+@preprocessor   stylus
+@var checkbox xSimplifyAuthorCard "Simplify author card" 1
+@var checkbox xReduceOpacityOfTrendingLInks "Reduce opacity of trending links" 1
+@var select xCodeFont "Font face for code" {
+    "default": "default",
+    "cousine": "cousine",
+    "SF Mono": "SF Mono"
+}
+==/UserStyle== */
+@-moz-document domain("dev.to") {
+    /* Fonts for code */
+    /* @import url('https://fonts.googleapis.com/css?family=Cousine&display=swap'); */
+    pre code,
+    code {
+        font-family: xCodeFont, consolas, monospace;
+    }
+
+    if xSimplifyAuthorCard {
+        /* Less-flashy author card */
+        .primary-sticky-nav .primary-sticky-nav-element {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0 !important;
+        }
+
+        .primary-sticky-nav-author button {
+            background: transparent !important;
+            color: var(--theme-secondary-color, #666) !important;
+            border: solid 2px #8882 !important;
+            font-size: 0.86em !important;
+        }
+    }
+
+    if xReduceOpacityOfTrendingLinks {
+        /* Trending heading */
+        /* Trending link */
+        .primary-sticky-nav-title,
+        .primary-sticky-nav-element:not(.primary-sticky-nav-author) {
+            opacity: 0.2 !important;
+        }
+
+        .primary-sticky-nav-element:hover {
+            opacity: 1 !important;
+        }
+    }
+}
