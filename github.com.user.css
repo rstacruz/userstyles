@@ -1,0 +1,35 @@
+/* ==UserStyle==
+@name           GitHub customizations
+@namespace      github.com/openstyles/stylus
+@version        1.0.1
+@description    Customizations for github.com
+
+@author         Rico Sta. Cruz (@rstacruz)
+@homepageURL    https://github.com/rstacruz/userstyles
+@updateURL      https://raw.githubusercontent.com/rstacruz/userstyles/master/github.com.user.css
+
+@preprocessor   stylus
+@var select xCodeFont "Font face for code" {
+    "default": "default",
+    "Cousine": "Cousine",
+    "SF Mono": "SF Mono"
+}
+==/UserStyle== */
+
+@-moz-document domain("github.com") {
+  unless xCodeFont == "default" {
+      code,
+      pre,
+      tt,
+      .blob-code-inner,
+      .commit-ref,
+      .file-info,
+      .input-monospace {
+        font-family: xCodeFont, Cousine, SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+        
+        if xCodeFont == "SF Mono" {
+            letter-spacing: -0.04em;
+        }
+      }
+    }
+}
