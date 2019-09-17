@@ -16,7 +16,7 @@
 }
 ==/UserStyle== */
 
-@-moz-document regexp(".*\\.slack\\.com/messages/.*") {
+@-moz-document regexp(".*\\.slack\\.com/(client|messages)/.*") {
   unless xBodyFont == "default" {
     [lang] #msg_input,
     [lang] body {
